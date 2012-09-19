@@ -103,7 +103,11 @@ Handle<Value> geoip::City::lookupSync(const Arguments &args) {
   }
 
   if (record->city != NULL) {
-    data->Set(String::NewSymbol("city"), String::New(_GeoIP_iso_8859_1__utf8(record->city)));
+    char *city = _GeoIP_iso_8859_1__utf8(record->city);
+    if (city) {
+        data->Set(String::NewSymbol("city"), String::New(city));
+        free(city);
+    }
   }
 
   if (record->postal_code != NULL) {
@@ -140,6 +144,8 @@ Handle<Value> geoip::City::lookupSync(const Arguments &args) {
       data->Set(String::NewSymbol("time_zone"), String::New(time_zone));
     }
   }
+
+  GeoIPRecord_delete(record);
 
   return scope.Close(data);
 }

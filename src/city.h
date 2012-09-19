@@ -41,6 +41,11 @@ namespace geoip {
       static Handle<Value> update(const Arguments &args);
 
       static void close(const Arguments &args);
+
+      City() : db(NULL) {}
+      ~City() {
+        if (db) GeoIP_delete(db);
+      }
   };
 
 }
