@@ -1,8 +1,8 @@
 {
-  "name":"geoip",
-  "description":"GeoIP binding for node",
+  "name":"geoip-no-city-leak",
+  "description":"A fork of kuno/geoip where the City.lookupSync leaks have been patched",
   "version":"0.4.8",
-  "homepage":"http://github.com/kuno/GeoIP",
+  "homepage":"https://github.com/sydneystockholm/geoip",
   "author":"Guan 'kuno' Qing <neokuno at Gmail dot com>",
   "contributors":
     [
@@ -13,19 +13,15 @@
       "Sven Steinheißer <sven.steinheisser@googlemail.com>",
       "James Taylor <jt@gosquared.com>",
       "Robert Schultz <robert@cosmicrealms.com>",
-      "Tim Oxley <secoif@gmail.com>"
+      "Tim Oxley <secoif@gmail.com>",
+      "Chris O'Hara <cohara87@gmail.com>"
     ],
   "repository":
     {
       "type":"git",
-      "url":"git://github.com/kuno/GeoIP.git"
+      "url":"git://github.com/sydneystockholm/geoip.git"
     },
   "keywords":["geoip", "geolocation"],
-  "bugs":
-    {
-      "mail":"neokuno@gmail.com",
-      "url":"http://github.com/kuno/GeoIP/issues"
-    },
   "main":"index.js",
   "directory": 
     { "src":"./src",

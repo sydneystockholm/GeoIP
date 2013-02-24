@@ -1,3 +1,5 @@
+## Note: this is a version of kuno/GeoIP where the leaks in City.lookupSync have been patched. All other methods leak so use at your own risk.
+
 __GeoIP binding for nodejs__
 [![build status](https://secure.travis-ci.org/kuno/GeoIP.png)](http://travis-ci.org/kuno/GeoIP)
 
