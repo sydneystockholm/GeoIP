@@ -1,4 +1,2 @@
-This is a version of kuno/GeoIP where the leaks in `City.lookupSync` have been patched.
-
-All other methods leak so use at your own risk.
+This is a fork of [kuno/GeoIP](https://github.com/kuno/GeoIP) where the leaks in `City.lookupSync()` have been patched.
 
