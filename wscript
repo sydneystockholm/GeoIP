@@ -29,3 +29,4 @@ def link(bld):
   else:
     if exists(getcwd() + '/build/default/geoip.node') and not exists(getcwd() + 'geoip.node'):
       symlink(getcwd()+'/build/default/geoip.node', getcwd() + 'geoip.node')
+

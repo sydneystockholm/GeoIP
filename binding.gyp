@@ -13,8 +13,7 @@
       'include_dirs': [
           '<(node_root_dir)/src'
       ],
-      'conditions': [
-      ]
+      'conditions': []
     },
   ]
 }

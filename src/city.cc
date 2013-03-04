@@ -104,4 +104,3 @@ Handle<Value> City::lookupSync(const Arguments &args) {
     GeoIPRecord_delete(record);
     return scope.Close(data);
 }
-
