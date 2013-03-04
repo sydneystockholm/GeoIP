@@ -2,59 +2,35 @@
  * GeoIP C library binding for nodejs
  *
  * Licensed under the GNU LGPL 2.1 license
- */                                              
+ */
 
 #ifndef NODE_GEOIP_CITY_H
 #define NODE_GEOIP_CITY_H
 
 #include <v8.h>
 #include <node.h>
-#include "node_geoip.h"
+#include <GeoIPCity.h>
 
-using namespace v8;
-using namespace node;
+extern "C" GEOIP_API unsigned long _GeoIP_lookupaddress (const char *host);
 
 namespace geoip {
-  class City: ObjectWrap
-  {
-    private:
-      GeoIP *db;
-
-      int db_edition;
-
-      static Persistent<FunctionTemplate> constructor_template;
-
-      static void EIO_City(uv_work_t *req);
-
-      static void EIO_AfterCity(uv_work_t *req);
-
+  class City: public node::ObjectWrap {
     protected:
-      static Handle<Value> New(const Arguments& args);
-
+      GeoIP *db;
+      static v8::Persistent<v8::FunctionTemplate> constructor_template;
+      static v8::Handle<v8::Value> New(const v8::Arguments& args);
     public:
-      static void Init(Handle<Object> target);
-
-      static Handle<Value> lookupSync(const Arguments &args);
-
-      static Handle<Value> lookup(const Arguments& args);
-      
-      static Handle<Value> update(const Arguments &args);
-
-      static void close(const Arguments &args);
-
+      static void Init(v8::Handle<v8::Object> target);
+      static v8::Handle<v8::Value> lookupSync(const v8::Arguments &args);
+      static void close(const v8::Arguments &args);
       City() : db(NULL) {}
       ~City() {
         if (db) GeoIP_delete(db);
       }
   };
 
+  v8::Persistent<v8::FunctionTemplate> City::constructor_template;
 }
 
-struct city_baton_t {
-  geoip::City *c;
-  GeoIPRecord *record;
-  uint32_t ipnum;
-  Persistent<Function> cb;
-};
+#endif
 
-#endif /* NODE_GEOIP_CITY_H */

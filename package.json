@@ -1,7 +1,7 @@
 {
   "name":"geoip-no-city-leak",
   "description":"A fork of kuno/geoip where the City.lookupSync leaks have been patched",
-  "version":"0.4.8",
+  "version":"0.4.9",
   "homepage":"https://github.com/sydneystockholm/geoip",
   "author":"Guan 'kuno' Qing <neokuno at Gmail dot com>",
   "contributors":
